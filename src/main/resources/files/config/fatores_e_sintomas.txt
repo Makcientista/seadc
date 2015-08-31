@@ -1,0 +1,32 @@
+fator-de-risco;Colesterol;colesterol
+fator-de-risco;Diabetes;diabetes
+fator-de-risco;Infarto;infarto
+fator-de-risco;Fumante;fumante
+fator-de-risco;Alcoolismo;alcoolismo
+fator-de-risco;Gravidez;gravidez
+fator-de-risco;Obesidade;obesidade
+fator-de-risco;Hipertensão;hipertensao
+fator-de-risco;Usuário de drogas;usuario-de-drogas
+fator-de-risco;Infecçõess virais;infeccoes-virais
+fator-de-risco;Histórico Familiar;historico-familiar
+sintoma;Pele azulada;pele-azulada
+sintoma;Inchaço ou ganho de peso;inchaco-ou-ganho-de-peso
+sintoma;Falta de ar;falta-de-ar
+sintoma;Tosse crônica;tosse-cronica
+sintoma;Figado inchado;figado-inchado
+sintoma;Veias do pescoço aumentadas;veias-do-pescoco-aumentadas
+sintoma;Falta de apetite;falta-de-apetite
+sintoma;Transpiração intensa;transpiracao-intensa
+sintoma;Dor no peito;dor-no-peito
+sintoma;Tontura;tontura
+sintoma;Desmaio;desmaio
+sintoma;Inchaço partes inferiores;inchaco-partes-inferiores
+sintoma;Inchaço no abdômen;inchaco-no-abdomen
+sintoma;Tosse;tosse
+sintoma;Fadiga;fadiga
+sintoma;Arrítmia cardiaca;arritmia cardiaca
+sintoma;Tontura;tontura
+sintoma;Vertigem;vertigem
+sintoma;Palpitações no peito;palpitacoes-no-peito
+sintoma;Fraqueza;fraqueza
+sintoma;Confusão;confusao
