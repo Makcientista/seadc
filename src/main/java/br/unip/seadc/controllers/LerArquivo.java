@@ -34,7 +34,7 @@ public class LerArquivo {
 					sintomasList.add(slices[1]);
 				}
 				else{
-					JOptionPane.showMessageDialog(null, "Não foi possível adicionar um ou muitos fatores de risco/sintomas");
+					JOptionPane.showMessageDialog(null, "NÃ£o foi possÃ­vel adicionar um ou muitos fatores de risco/sintomas");
 				}	
 		    }
 		    

@@ -6,9 +6,11 @@
 
 (import main.java.br.unip.seadc.beans.Sintoma)
 (import main.java.br.unip.seadc.beans.Diagnostico)
+(import main.java.br.unip.seadc.beans.FatorDeRisco)
 
 (deftemplate Sintoma		(declare (from-class Sintoma)))
 (deftemplate Diagnostico	(declare (from-class Diagnostico)))
+(deftemplate FatorDeRisco	(declare (from-class FatorDeRisco)))
 
 ;; regras ;;
 (defrule sopro-no-coracao

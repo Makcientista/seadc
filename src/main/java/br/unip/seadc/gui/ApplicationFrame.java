@@ -1,6 +1,11 @@
 package main.java.br.unip.seadc.gui;
 
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -23,6 +28,9 @@ public class ApplicationFrame extends JFrame{
 	private JPanel fatoresDeRiscoPanel;
 	private JPanel sintomasPanel;
 	private JButton btnDiagnosticar;
+	
+	private List<JCheckBox> selectedFatoresList = new ArrayList<JCheckBox>();
+	private List<JCheckBox> selectedSintomasList = new ArrayList<JCheckBox>();
 	
 	public ApplicationFrame(){
 		setTitle("SEADC");
@@ -62,6 +70,40 @@ public class ApplicationFrame extends JFrame{
 		btnDiagnosticar.setIcon(new ImageIcon(ApplicationFrame.class.getResource("/main/resources/imgs/btnDiagnosticar.png")));
 		btnDiagnosticar.setBounds(461, 483, 137, 49);
 		getContentPane().add(btnDiagnosticar);
+		
+		btnDiagnosticar.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				
+				// Make sure both lists are empty before adding anything
+				selectedFatoresList.clear();
+				selectedSintomasList.clear();
+				
+				for ( Component compFator : fatoresDeRiscoPanel.getComponents() ) {
+					if( compFator instanceof JCheckBox ){
+						if(((JCheckBox) compFator).isSelected()){
+							selectedFatoresList.add((JCheckBox) compFator);
+						}
+					}
+				}
+				
+				for ( Component compSintoma : sintomasPanel.getComponents() ) {
+					if( compSintoma instanceof JCheckBox ){
+						if(((JCheckBox) compSintoma).isSelected()){
+							selectedSintomasList.add((JCheckBox) compSintoma);
+						}
+					}
+				}
+				
+				// DEBUG
+				for (JCheckBox v : selectedFatoresList) {
+					System.out.println(v.getText());
+				}
+				
+				for (JCheckBox x : selectedSintomasList) {
+					System.out.println(x.getText());
+				}
+			}
+		});
 	}
 	
 	public static void main(String[] args) {
