@@ -1,32 +1,36 @@
-fator-de-risco;Colesterol;colesterol
+fator-de-risco;Colesterol alto;colesterol-alto
 fator-de-risco;Diabetes;diabetes
 fator-de-risco;Infarto;infarto
 fator-de-risco;Fumante;fumante
 fator-de-risco;Alcoolismo;alcoolismo
 fator-de-risco;Gravidez;gravidez
 fator-de-risco;Obesidade;obesidade
-fator-de-risco;Hipertens„o;hipertensao
-fator-de-risco;Usu·rio de drogas;usuario-de-drogas
-fator-de-risco;InfecÁıess virais;infeccoes-virais
-fator-de-risco;HistÛrico Familiar;historico-familiar
+fator-de-risco;Hipertens√£o;hipertensao
+fator-de-risco;Usu√°rio de drogas;usuario-de-drogas
+fator-de-risco;Infec√ß√µes virais;infeccoes-virais
+fator-de-risco;Hist√≥rico Familiar;historico-familiar
 sintoma;Pele azulada;pele-azulada
-sintoma;InchaÁo ou ganho de peso;inchaco-ou-ganho-de-peso
+sintoma;Incha√ßo ou ganho de peso;inchaco-ou-ganho-de-peso
 sintoma;Falta de ar;falta-de-ar
-sintoma;Tosse crÙnica;tosse-cronica
+sintoma;Tosse cr√¥nica;tosse-cronica
 sintoma;Figado inchado;figado-inchado
-sintoma;Veias do pescoÁo aumentadas;veias-do-pescoco-aumentadas
+sintoma;Veias do pesco√ßo aumentadas;veias-do-pescoco-aumentadas
 sintoma;Falta de apetite;falta-de-apetite
-sintoma;TranspiraÁ„o intensa;transpiracao-intensa
+sintoma;Transpira√ß√£o intensa;transpiracao-intensa
 sintoma;Dor no peito;dor-no-peito
 sintoma;Tontura;tontura
 sintoma;Desmaio;desmaio
-sintoma;InchaÁo partes inferiores;inchaco-partes-inferiores
-sintoma;InchaÁo no abdÙmen;inchaco-no-abdomen
+sintoma;Incha√ßo partes inferiores;inchaco-partes-inferiores
+sintoma;Incha√ßo no abd√¥men;inchaco-no-abdomen
 sintoma;Tosse;tosse
 sintoma;Fadiga;fadiga
-sintoma;ArrÌtmia cardiaca;arritmia cardiaca
-sintoma;Tontura;tontura
+sintoma;Arr√≠tmia cardiaca;arritmia-cardiaca
 sintoma;Vertigem;vertigem
-sintoma;PalpitaÁıes no peito;palpitacoes-no-peito
+sintoma;Palpita√ß√µes no peito;palpitacoes-no-peito
 sintoma;Fraqueza;fraqueza
-sintoma;Confus„o;confusao
+sintoma;Confus√£o;confusao
+sintoma;Zumbido no ouvido;zumbido-no-ouvido
+sintoma;Sangramento nasal;sangramento-nasal
+sintoma;Sensa√ß√£o de peso no peito;sensacao-de-peso-no-peito
+sintoma;Vis√£o Emba√ßada;visao-embacada
+sintoma;Dor de cabe√ßa;dor-de-cabeca
