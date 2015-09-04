@@ -97,15 +97,13 @@ public class ApplicationFrame extends JFrame{
 		lblDataNascimento.setBounds(300, 25, 200, 25);
 		dadosPaciente.add(lblDataNascimento);
 		
-		try
-		{
+		try{
 			mascara = new MaskFormatter("##/##/####");  
 		    mascara.setPlaceholderCharacter('_');
 		    mascara.setValidCharacters("0123456789");  
-		}
-		catch(ParseException e)
+		}catch(ParseException pe)
 		{
-			e.printStackTrace();
+			pe.printStackTrace();
 		}
 		
 		txtDataNascimento = new JFormattedTextField(mascara);
@@ -130,8 +128,6 @@ public class ApplicationFrame extends JFrame{
 		
 		grpSexo.add(rdbMasculino);
 		grpSexo.add(rdbFeminino);
-		
-		//-----------------------------------------------------------------------------
 		
 		fatoresDeRiscoPanel = new JPanel();
 		fatoresDeRiscoPanel.setBorder(new TitledBorder(null, "Fatores de risco", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -187,48 +183,82 @@ public class ApplicationFrame extends JFrame{
 					}
 				}
 				
-				assignMatchedKeywords();
-				
-				Rete engine = new Rete();
-				
-				try {
-					engine.reset();
-					engine.batch("src/main/resources/files/config/regras.clp");
+				if(validateFields()){
 					
-					FatorDeRisco[] f = new FatorDeRisco[selectedFatoresList.size()];
-					Sintoma[] s = new Sintoma[selectedSintomasList.size()];
+					assignMatchedKeywords();
 					
-					for (int i = 0; i < f.length; i++) {
-						f[i] = new FatorDeRisco(keywordFatoresList.get(i));
-						engine.add(f[i]);
+					Rete engine = new Rete();
+					
+					try {
+						engine.reset();
+						engine.batch("src/main/resources/files/config/regras.clp");
+						
+						FatorDeRisco[] f = new FatorDeRisco[selectedFatoresList.size()];
+						Sintoma[] s = new Sintoma[selectedSintomasList.size()];
+						
+						for (int i = 0; i < f.length; i++) {
+							f[i] = new FatorDeRisco(keywordFatoresList.get(i));
+							engine.add(f[i]);
+						}
+						
+						for (int j = 0; j < s.length; j++) {
+							s[j] = new Sintoma(keywordSintomasList.get(j));
+							engine.add(s[j]);
+						}
+						
+						engine.run();
+						
+						it = (engine.getObjects(new Filter.ByClass(Diagnostico.class)));
+						
+						List<Diagnostico> diagnosticos = new ArrayList<Diagnostico>();
+						
+						while(it.hasNext()){
+							diagnosticos.add(it.next());
+						}
+						
+						if(diagnosticos != null && diagnosticos.size() > 0){
+							for (int i = 0; i < diagnosticos.size(); i++) {
+								JOptionPane.showMessageDialog(null, diagnosticos.get(i).toString(), "Resultado", JOptionPane.INFORMATION_MESSAGE);
+							}	
+						}else{
+							JOptionPane.showMessageDialog(null, "Não foi encontrado nenhum diagnóstico compatível com as características informadas!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
+						}
+					} catch (JessException je) {
+						je.printStackTrace();
 					}
-					
-					for (int j = 0; j < s.length; j++) {
-						s[j] = new Sintoma(keywordSintomasList.get(j));
-						engine.add(s[j]);
-					}
-					
-					engine.run();
-					
-					it = (engine.getObjects(new Filter.ByClass(Diagnostico.class)));
-					
-					List<Diagnostico> diagnosticos = new ArrayList<Diagnostico>();
-					
-					while(it.hasNext()){
-						diagnosticos.add(it.next());
-					}
-					
-					if(diagnosticos != null && diagnosticos.size() > 0){
-						System.out.println(diagnosticos.get(0).toString());
-					}else{
-						JOptionPane.showMessageDialog(null, "Não foi encontrado nenhum diagnóstico compatível com as características informadas!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
-						engine.executeCommand("(exit)");
-					}
-				} catch (JessException je) {
-					je.printStackTrace();
 				}
 			}
 		});
+	}
+	
+	private boolean validateFields(){
+		
+		if(txtNome.getText().trim().equals("")){
+			JOptionPane.showMessageDialog(null, "Atenção! O nome do paciente não foi informado", "Erro", JOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+		
+		if(txtDataNascimento.getText().trim().equals("__/__/____")){
+			JOptionPane.showMessageDialog(null, "Atenção! A data de nascimento do paciente não foi informada", "Erro", JOptionPane.ERROR_MESSAGE);	
+			return false;
+		}
+	
+		if(grpSexo.getSelection() == null){
+			JOptionPane.showMessageDialog(null, "Atenção! O sexo do paciente não foi informado", "Erro", JOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+		
+		if(selectedFatoresList != null && selectedFatoresList.size() == 0){
+			JOptionPane.showMessageDialog(null, "Atenção! Nenhum fator de risco foi selecionado", "Erro", JOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+		
+		if(selectedSintomasList != null && selectedSintomasList.size() == 0){
+			JOptionPane.showMessageDialog(null, "Atenção! Nenhum sintoma foi selecionado", "Erro", JOptionPane.ERROR_MESSAGE);
+			return false;		
+		}
+		
+		return true;
 	}
 	
 	private void assignMatchedKeywords(){
